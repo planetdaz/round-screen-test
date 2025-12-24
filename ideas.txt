@@ -1,0 +1,68 @@
+Animation / Visualizer ideas
+
+
+
+--------------------------------------------------------------------------------------------------------------
+Pac man and ghosts and cherries and dots.. pacman eats dots, ghosts chase pacman, pacman eats booster and turns on blue ghosts and eats them
+
+Could even have rotating maze tiles, and pacman has to go through if they line up to where they output
+
+Pixelated? Both?
+
+Of course mario and donkey kong are natural additions, even mashed up with pacman
+
+--------------------------------------------------------------------------------------------------------------
+
+water filling up and spilling out of one circle into another
+
+--------------------------------------------------------------------------------------------------------------
+
+each circle as a pixel, marquee style dots.. 
+
+--------------------------------------------------------------------------------------------------------------
+
+water or slime slowly going through pipes that are tiled in different ways like the plumbing game 
+
+--------------------------------------------------------------------------------------------------------------
+
+shape morphing blobs - wiggle around then change from circle blob to triangle blob etc
+
+pipe dream screensaver
+
+green matrix display 
+
+
+--------------------------------------------------------------------------------------------------------------
+***** BIG IDEA *****
+
+What about a small standalone version of the round screen, with a tiny seeed esp32 inside, fully self contained
+exposing only a usb-c. Magnets on the back of the round enclosure allow it to attach to fridge.. it just rotates 
+through random animations. Maybe ghost and pacman (one in each for example)
+
+Would need a tiny battery too, and no pins on the esp or display (or cut off short and wired instead for thin depth)
+
+Named Fridge Pixels? Give them as gifts etc.
+
+They can have pixel art etc.. or slideshows.. be updatable via wifi - use wifi manager to connect (with qr code),
+and then allow users to upload their own pics or animated gifs or pixel art.
+
+290Mah battery: https://www.digikey.com/en/products/detail/tinycircuits/ASR00007/7404517?gclsrc=aw.ds&gad_source=1&gad_campaignid=20243136172&gbraid=0AAAAADrbLlhuZNRsTCDSusHekD0QddVkJ&gclid=CjwKCAiAu67KBhAkEiwAY0jAlaoMEr_buGjqimn2Y7UZcGzSTwTLk7YFh1dnxmW1raVkt-1Oq29WkRoCaK8QAvD_BwE
+
+Size / Dimension
+0.98" L x 0.91" W x 0.22" H (25.0mm x 23.0mm x 5.5mm)
+
+how long would 290mah run the circuits?
+
+>>>
+
+Case would need to be bigger for this larger one:
+https://www.sparkfun.com/lithium-ion-battery-400mah.html
+
+Rated Capacity: 400mAh
+Nominal Voltage 3.70V
+Max Charge Current: 1C (400mA)
+Normal Charge Current: 0.2C (80mA)
+1.06" x 1.48" x 0.2" (26.5mm x 36.9mm x 5mm)
+
+
+--------------------------------------------------------------------------------------------------------------
