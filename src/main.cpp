@@ -41,20 +41,34 @@ void setup() {
 }
 
 void loop() {
-  const int center = 120;
+  static float angle = 0;
+  static float pulse = 0;
 
-  for (int radius = 120; radius >= 108; radius--) {
-    tft.fillScreen(GC9A01A_BLACK);
+  const int cx = 120;
+  const int cy = 120;
+  const int maxR = 118;
 
-    // draw test circle
-    tft.drawCircle(center, center, radius, GC9A01A_GREEN);
+  tft.fillScreen(GC9A01A_BLACK);
 
-    // radius label
-    tft.setTextColor(GC9A01A_WHITE, GC9A01A_BLACK);
-    tft.setTextSize(3);
-    tft.setCursor(85, 108);
-    tft.print(radius);
+  // ---- breathing outer ring ----
+  int ringR = maxR - 4 + sin(pulse) * 3;
+  tft.drawCircle(cx, cy, ringR, GC9A01A_BLUE);
 
-    delay(5000); // 5 seconds per radius
+  // ---- orbiting dots ----
+  for (int i = 0; i < 3; i++) {
+    float a = angle + i * TWO_PI / 3;
+    int x = cx + cos(a) * (maxR - 10);
+    int y = cy + sin(a) * (maxR - 10);
+
+    tft.fillCircle(x, y, 5, GC9A01A_GREEN);
   }
+
+  // ---- center dot ----
+  tft.fillCircle(cx, cy, 4, GC9A01A_RED);
+
+  angle += 0.05;   // orbit speed
+  pulse += 0.03;   // breathing speed
+
+  delay(20);       // ~50 FPS
 }
+
