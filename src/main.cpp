@@ -25,9 +25,9 @@ void flashLed(uint8_t times, uint16_t delayMs) {
 }
 
 void setup() {
-  // ---- LED power-on indicator ----
+  // ---- LED sanity blink ----
   pinMode(LED_PIN, OUTPUT);
-  flashLed(5, 80);   // rapid 5x blink
+  flashLed(5, 80);
 
   Serial.begin(115200);
   delay(200);
@@ -37,24 +37,24 @@ void setup() {
 
   // ---- TFT ----
   tft.begin();
-  tft.fillScreen(GC9A01A_BLACK);
-
-  // Crosshair
-  tft.drawLine(0, 120, 239, 120, GC9A01A_RED);
-  tft.drawLine(120, 0, 120, 239, GC9A01A_RED);
-
-  // Circles
-  for (int r = 20; r <= 120; r += 20) {
-    tft.drawCircle(120, 120, r, GC9A01A_GREEN);
-  }
-
-  // Label
-  tft.setTextColor(GC9A01A_WHITE);
-  tft.setTextSize(2);
-  tft.setCursor(55, 110);
-  tft.print("GC9A01");
+  tft.setRotation(0);
 }
 
 void loop() {
-  // nothing
+  const int center = 120;
+
+  for (int radius = 120; radius >= 108; radius--) {
+    tft.fillScreen(GC9A01A_BLACK);
+
+    // draw test circle
+    tft.drawCircle(center, center, radius, GC9A01A_GREEN);
+
+    // radius label
+    tft.setTextColor(GC9A01A_WHITE, GC9A01A_BLACK);
+    tft.setTextSize(3);
+    tft.setCursor(85, 108);
+    tft.print(radius);
+
+    delay(5000); // 5 seconds per radius
+  }
 }
