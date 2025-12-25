@@ -52,33 +52,53 @@ void loop() {
   const int cy = 120;
   const int maxR = 118;
 
-  // ---- draw to offscreen buffer ----
   canvas.fillScreen(GC9A01A_BLACK);
 
-  // breathing ring (thicker so it's visible)
-  int ringR = maxR - 6 + sin(pulse) * 4;
-  for (int w = 0; w < 3; w++) {
-    canvas.drawCircle(cx, cy, ringR - w, GC9A01A_BLUE);
+  // ---- pulse shaping ----
+  float s = (sin(pulse) + 1.0f) * 0.5f;   // 0..1
+  float eased = pow(s, 3.0f);            // sharp attack, slow decay
+
+  int baseR = maxR - 10;
+  int pulseR = baseR + eased * 12;       // BIG size change
+  int thickness = 2 + eased * 6;         // thick on beat
+
+  // color brightness pulse (blue → cyan)
+  uint16_t pulseColor = tft.color565(
+    0,
+    100 + eased * 155,
+    200 + eased * 55
+  );
+
+  // ---- main pulse ring ----
+  for (int w = 0; w < thickness; w++) {
+    canvas.drawCircle(cx, cy, pulseR - w, pulseColor);
   }
 
-  // orbiting dots
+  // ---- outer glow ----
+  for (int g = 0; g < 6; g++) {
+    int r = pulseR + g + 2;
+    uint16_t glow = tft.color565(0, 30, 60 - g * 8);
+    canvas.drawCircle(cx, cy, r, glow);
+  }
+
+  // ---- orbiting dots ----
   for (int i = 0; i < 3; i++) {
     float a = angle + i * TWO_PI / 3;
-    int x = cx + cos(a) * (maxR - 12);
-    int y = cy + sin(a) * (maxR - 12);
+    int x = cx + cos(a) * (maxR - 14);
+    int y = cy + sin(a) * (maxR - 14);
     canvas.fillCircle(x, y, 5, GC9A01A_GREEN);
   }
 
-  // center dot
+  // ---- center dot ----
   canvas.fillCircle(cx, cy, 4, GC9A01A_RED);
 
-  // ---- blit buffer to display (single transfer) ----
+  // ---- present frame ----
   tft.drawRGBBitmap(0, 0, canvas.getBuffer(), 240, 240);
 
   angle += 0.045;
-  pulse += 0.035;
+  pulse += 0.06;     // slower = calmer, faster = heartbeat
 
-  delay(20); // ~50 FPS, very stable
 }
+
 
 
