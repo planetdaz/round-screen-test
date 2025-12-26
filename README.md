@@ -92,6 +92,14 @@ pio device monitor
 
 The serial output shows detailed debug info including chip info, memory usage, and display configuration.
 
+### If local COM port is stuck
+
+```bash
+mode COM8: BAUD=115200
+```
+
+Use the actual COM port number.
+
 ## Dependencies
 
 Managed automatically by PlatformIO:
