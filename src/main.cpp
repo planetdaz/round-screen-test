@@ -6,7 +6,6 @@
 // 240x240 RGB565 buffer (~115 KB)
 GFXcanvas16 canvas(240, 240);
 
-
 // ---- LED ----
 #define LED_PIN 2   // D0 / GPIO2 / physical pin 1
 
@@ -18,6 +17,9 @@ GFXcanvas16 canvas(240, 240);
 #define tft_sda  10  // D10 / GPIO10 / pin 11
 
 Adafruit_GC9A01A tft(tft_cs, tft_dc, tft_rst);
+
+unsigned long fpsLastTime = 0;
+unsigned long fpsFrames = 0;
 
 void flashLed(uint8_t times, uint16_t delayMs) {
   for (uint8_t i = 0; i < times; i++) {
@@ -98,7 +100,16 @@ void loop() {
   angle += 0.045;
   pulse += 0.06;     // slower = calmer, faster = heartbeat
 
+  // ---- FPS tracking ----
+  fpsFrames++;
+  unsigned long now = millis();
+
+  if (now - fpsLastTime >= 1000) {
+    float fps = fpsFrames * 1000.0f / (now - fpsLastTime);
+    Serial.print("FPS: ");
+    Serial.println(fps, 1);
+
+    fpsFrames = 0;
+    fpsLastTime = now;
+  }
 }
-
-
-
