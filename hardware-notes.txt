@@ -1,0 +1,21 @@
+pixel matrix project notes
+------------------------------
+
+
+ - Pixel enclosure screws = 3x10 (2)
+ 
+ 
+
+- cheaper esp32-s3 modules? Uncertain quality and delivery
+
+https://www.aliexpress.us/item/3256807002885392.html?spm=a2g0o.productlist.main.49.53a666a1R1ZmaH&algo_pvid=e8413de0-2236-4fc1-af03-21222eed5837&algo_exp_id=e8413de0-2236-4fc1-af03-21222eed5837-48&pdp_ext_f=%7B%22order%22%3A%226%22%2C%22eval%22%3A%221%22%2C%22fromPage%22%3A%22search%22%7D&pdp_npi=6%40dis%21USD%215.69%213.98%21%21%2139.61%2127.73%21%402101d6ff17669449542768597e4f8b%2112000039745181196%21sea%21US%210%21ABX%211%210%21n_tag%3A-29910%3Bd%3Abbc17020%3Bm03_new_user%3A-29895&curPageLogUid=RxNqmxaoeSyV&utparam-url=scene%3Asearch%7Cquery_from%3A%7Cx_object_id%3A1005007189200144%7C_p_origin_prod%3A
+
+
+
+
+
+NYE Ideas:
+ -- Keg? 
+ -- https://astralumina.com/dallas/?utm_source=google&utm_medium=sc_nbrand&utm_campaign=459112_dfw&utm_content=774716244125&utm_term=light%20festival_b&gad_source=1&gad_campaignid=23026018680&gbraid=0AAAAADGO9U_JjP6m1yM-aMx7zYSQ0mTy1&gclid=Cj0KCQiApL7KBhC7ARIsAD2Xq3AaKrNO7rtf9szK6EsCwLau0xNfIBlh4zClZm1FM1BoY-nULY2fB_QaAlQ2EALw_wcB
+ 
+ 214.421.1080
